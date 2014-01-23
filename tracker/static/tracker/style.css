@@ -1,0 +1,368 @@
+body {
+	font-family: 'Raleway', sans-serif;
+	color: #000000;
+}
+
+a {
+	color: #002147;
+	font-size: 13px;
+	text-decoration: none;
+}
+
+h1 {
+	font-size: 30px;
+	font-weight: 400;
+	color: #002147;
+	text-align: center;
+	margin-top: 18px;
+	line-height: 0;
+}
+
+h2 {
+	font-size: 18px;
+	font-weight: 400;
+	margin-top: 15px;
+	margin-left: 150px;
+	margin-right: 150px;
+	color: #002147;
+	text-align: center;
+}
+
+h3 {
+	font-size: 15px;
+	text-align: center;
+	font-weight: 200;
+	color: #c83b41;
+}
+
+h4 {
+	font-size: 18px;
+	text-align: center;
+	font-weight: 200;
+}
+
+h5 {
+	font-size: 12px;
+}
+
+.crest {
+	margin-top: 20px;
+}
+
+.lines {
+	margin-top: 0px;
+}
+
+ul.nav {
+	margin: 40px 0 50px 0;
+	list-style: none;
+}
+
+ul.nav li {
+	float: left;
+	margin-left: 0px;
+	margin-right: 20px;
+	font-weight: 400;
+}
+
+ul.nav li a {
+	color: #000000;
+}
+
+
+ul.logout {
+	margin: 40px 40px 50px 0;
+	list-style: none;
+	float: right;
+}
+
+ul.logout li {
+	float: right;
+	padding-left:20px;
+	font-weight: 400;
+}
+
+ul.logout li a {
+	color: #000000;
+}
+
+
+/* Performance log css */
+
+.create_session1 {
+	width: 600px;
+	margin: 0 auto;
+	text-align: left;
+	padding-left: 200px;
+}
+
+.log_performance_container {   /* Pretty sure this is a duplicate and thus a naming error */
+	width: 600px;
+	margin: 0 auto;
+}
+
+.distance_time_title {
+	width: 170px;
+	margin-left: 45px;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+.time_field {
+	width:375px;
+	float: right;
+	margin-bottom: 5px;
+}
+
+.time_example {
+
+	width:375px;
+	float: right;
+	font-size: 15px;
+	margin-bottom: 5px;
+	font-weight: 600;
+	color: #c83b41;
+}
+
+
+.log_button {
+	width:245px;
+	float: right;
+	margin-bottom: 5px;
+	margin-left:130px;
+}
+
+.unavailable {
+	width: 600px;
+	text-align: center;
+	font-size: 13px;
+	padding-left: 19px;
+}
+
+/* Here is the css for the training schedule */
+
+.session_headline {
+	margin-top: 4px;
+	width: 760px;
+	margin: 0 auto;
+	background-color: #002147;
+	margin-bottom: 5px;
+}
+
+.session_description {
+	width: 760px;
+	margin: 0 auto;
+	background-color: #F0F5FA;
+	margin-bottom: 5px;
+}
+
+.log_performance {
+	width: 760px;
+	margin: 0 auto;
+	margin-top: -10px;
+}
+
+.log_performance p {
+	text-align: right;
+	color: #002147;
+	font-weight: 600;
+	text-decoration: underline;
+}
+
+.session_headline_names {
+	padding-left: 20px;
+	float: left;
+	width: 360px;
+	text-align: left;
+	margin-top: -10px;
+	margin-bottom: -10px;
+}
+
+.session_headline_names p {
+	color: white;
+}
+
+.session_headline_dates {
+	padding-right: 20px;
+	float: right;
+	width: 360px;
+	text-align: right;
+	margin-top: -10px;
+	margin-bottom: -10px;
+}
+
+.session_headline_dates p {
+	color: white;
+}
+
+.session_headline_dates a {
+	color: white;
+	text-decoration: underline;
+	font-size: 17px;
+}
+
+.session_description_title {
+	padding-left: 20px;
+	float: left;
+	width: 740px;
+	text-align: left;
+	margin-top: -10px;
+	margin-bottom: -10px;
+}
+
+.session_description_main {
+	width: 700px;
+	text-align: left;
+	float: none;
+	margin: -10px 30px 0px 30px;
+	padding-bottom: 3px;
+	}
+
+.metrics_strip {
+	width: 700px;
+	margin: 0 30px 0 30px;
+}
+
+.metrics_strip_title {
+	width: 140px;
+	text-align: center;
+	float: left;
+	margin: -10px 0 -10px 0;
+}
+
+.metrics_strip_1 {
+	width: 140px;
+	text-align: center;
+	float: left;
+	margin: -10px 0 -10px 0;
+}
+
+.no_distance {
+	width: 700px;
+	margin: -10px 30px 0 30px;
+}
+
+.no_distance p {
+	text-align: center;
+	font-weight: 600;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+/* css for choose_slot */
+
+.main_container {
+	width: 900px;
+	margin: 0 auto;
+}
+
+.thirds {
+	margin-left: 30px;
+	width: 280px;
+	float: left;
+	text-align: center;
+}
+
+ul.rowers {
+	list-style-type: none;
+	text-align: left;
+}
+
+.errors {
+	color: #d83b41;
+}
+
+.senior {
+	color: #002147;
+}
+
+
+/*css for login page*/
+
+.login_crest {
+	margin: 0 auto;
+	padding-top: 100px;
+	padding-right: 40px;
+	width: 50px;
+}
+
+.login_welcome {
+	padding-top: 30px;
+	width: 460px;
+	margin: 0 auto;
+	color: #002147;
+	font-weight: 400;
+	font-size: 25px;
+	text-align: left;
+}
+
+.login_form {
+	margin: 0 auto;
+	padding-top: 20px;
+	width: 460px;
+	font-size: 15px;
+}
+
+.login_form_half {
+	padding-top: 0px;
+	width: 220px;
+	margin-left: 20px;
+	text-align: left;
+}
+
+.submit {
+	text-align: right;
+	margin: 0 auto;
+	width: 410px;
+	font-size: 15px;
+}
+
+/* css for the buttons */
+
+.btn {
+	color: #FAF3BC;
+	background: #4FB69F url('img/texture.png') no-repeat right top;
+	padding: 15px 30px;
+	margin: 40px 0px;
+	border-radius: 25px;
+	text-transform: uppercase;
+}
+
+.btn:hover {
+	background-color: #4CC4A7;
+}
+
+#intro {
+	margin: 50px 0 75px 0;
+}
+
+
+#copyright {
+	border-top: 1px solid #2A0400;
+	margin: 15px 0px;
+	padding: 10px 0px;
+	text-align: center;
+}
+
+.alpha {
+	margin-left: 0px;
+}
+
+.omega {
+	margin-right: 0px;
+}
+
+.center {
+	text-align: center;
+}
+
+.right {
+	float: right;
+}
+
+.left {
+	float: left;
+}
+
+
+

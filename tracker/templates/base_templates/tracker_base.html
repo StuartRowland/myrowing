@@ -1,0 +1,67 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock title %}</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'tracker/normalize.css' %}" media="screen"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'tracker/grid.css' %}" media="screen"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'tracker/style.css' %}" media="screen"/>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:200,400,600' rel='stylesheet' type='text/css'>
+</head>
+
+
+<body>
+  <div class="container clearfix">
+
+<!-- This will be my block content section -->
+
+<div class="grid_1 crest">
+  <img src="{% static 'tracker/images/crest.png' %}" alt="">
+</div>
+
+<div class="grid_7">
+  <ul class="nav">
+    <li><a href="/tracker/john/">My Training</a></li>
+    <li class="last"><a href="#">My Squad</a></li>
+  </ul>
+</div>
+
+<div class="grid_4 omega">
+  <ul class="logout">
+    <li class="last"><a href="/tracker/logout/">Logout</a></li>
+    <li class="create_session"><a href="/tracker/create_session"><b>+Create Session</b></a></li>
+  </ul>
+</div>
+
+	<div class="grid_4 lines">
+	<img src="{% static 'tracker/images/lines.png' %}" alt="">
+	</div>
+	
+	<div class="grid_4">
+		<h1>{% block page_title %}{% endblock page_title %}</h1>
+	</div>
+	
+	<div class="grid_4 omega lines">
+	<img src="{% static 'tracker/images/lines.png' %}" alt="">
+	</div>
+	
+	<div class="grid_12 omega">
+		<h4>{% block description %}{% endblock description %}</h4>
+	</div>
+
+<div class="grid_12 omega">
+{% block contents %}{% endblock contents %}
+</div>
+
+
+
+<br>
+
+    <div id="copyright" class="grid_12">
+      <p>&copy; 2013 all rights reserved.</p>
+        </div>
+
+</div>
+</body>
+</html>

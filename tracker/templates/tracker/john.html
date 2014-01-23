@@ -1,0 +1,125 @@
+{% extends "base_templates/tracker_base.html" %}
+{% load i18n %}
+
+{% load dictionary_extras %}
+
+{% block title%}
+SJCBC Training
+{% endblock title %}
+
+{% block page_title %}
+My Training
+{% endblock page_title %}
+
+{% block description %}
+{{ active_first_name }}, welcome to your training schedule.<br>
+This is where you'll find all of your upcoming sessions, ready to be smashed!
+{% endblock description %}
+
+{% block contents %}
+
+<!-- x is a number on the list relating to the primary ID's, ordered in date order -->
+{% for x in date_ordered_id %}
+
+<div class="session_headline">		
+	<div class="session_headline_names">
+		<p><b>{{ active_squad }}: {{ dictionary_session.name|access:x }}</b></p>
+	</div>
+	<div class="session_headline_dates">
+		<p><b>{{ dictionary_session.date|access:x }}</b></p>
+	</div>
+	<div style="clear: both;">
+		
+	</div>
+	<div class="session_headline_names">
+		<p>{{ dictionary_session.location|access:x }}</p>
+	</div>
+	<div class="session_headline_dates">
+		{% if dictionary_session.chosen_slot_time|access:x == None %}
+		<p><a href="{% url 'tracker.views.choose_slot' x %}">Choose a session time</a></p>
+		{% else %}
+		<p><a href="{% url 'tracker.views.choose_slot' x %}">{{ dictionary_session.chosen_slot_time|access:x }}</a></p>
+		{% endif %}
+	</div>
+	<div style="clear: both;"></div>			
+</div>
+
+<div class="session_description">
+		
+	<div class="session_description_title">
+		<h5>Session description</h5>
+	</div>
+	<div style="clear: both;"></div>
+	<div class="session_description_main">
+		<p>{{ dictionary_session.description|access:x }}</p>
+	</div>
+	<div style="clear: both;"></div>			
+</div>
+
+{% if dictionary_performance_length|access:x == 0 %}
+<div class="session_description">
+	<div class="no_distance">
+		<p>No distances currently set for this session.</p>
+	</div>
+</div>
+{% else %}
+<div class="session_description">
+	<div class="metrics_strip">
+		<div class="metrics_strip_title">
+			<p><b>Distance</b> (m)</p>
+		</div>
+		<div class="metrics_strip_title">
+			<p><b>Time</b> (hh:mm:ss)</p>
+		</div>
+		<div class="metrics_strip_title">
+			<p><b>Rate</b> (/min)</p>
+		</div>
+		<div class="metrics_strip_title">
+			<p><b>Heart Zone?</b></p>
+		</div>
+		<div class="metrics_strip_title">
+			<p><b>Rest</b> (mins)</p>
+		</div>
+	<div style="clear: both;"></div>	
+	</div>
+<div style="clear: both;"></div>
+</div>
+{% endif %}
+
+
+{% for performance in dictionary_performance|access:x %}
+
+<div class="session_description">
+	<div class="metrics_strip">
+		<div class="metrics_strip_1">
+			<p>{{ performance.set_distance }}&nbsp;</p>
+		</div>
+		<div class="metrics_strip_1">
+			<p>{{ performance.set_time }}&nbsp;</p>
+		</div>
+		<div class="metrics_strip_1">
+			<p>{{ performance.set_rate_cap }}&nbsp;</p>
+		</div>
+		<div class="metrics_strip_1">
+			<p>{{ performance.set_heart_zone }}&nbsp;</p>
+		</div>
+		<div class="metrics_strip_1">
+			<p>{{ performance.set_rest_time }}&nbsp;</p>
+		</div>
+	<div style="clear: both;"></div>	
+	</div>
+	<div style="clear: both;"></div>
+</div>
+
+{% endfor %}
+
+<div class="log_performance">
+	<p><a href="{% url 'tracker.views.log_performance' x %}">Log my performance for {{ dictionary_session.name|access:x }}</a></p>
+</div>
+
+<div><br><br><br><br></div>
+
+{% endfor%}
+
+
+{% endblock contents %}

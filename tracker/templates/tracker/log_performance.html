@@ -1,0 +1,181 @@
+{% extends "base_templates/tracker_base.html" %}
+{% load i18n %}
+
+{% load dictionary_extras %}
+
+{% block title%}
+Log Performance
+{% endblock title %}
+
+{% block page_title %}
+Performance Log
+{% endblock page_title %}
+
+{% block description %}
+
+{% if session_distances_length != 0 %}
+Record your performance for <b>'{{ session.name }}'</b> on {{ session.date }}<br>
+{% else %}
+You've got no distances to record times for in <b>{{ session.name }}</b>!
+{% endif %}
+
+{% endblock description %}
+
+{% block contents %}
+
+<div class="log_performance_container">
+
+{% if session_reps >= 1 %}
+    <div class="distance_time_title left alpha">
+        <p><b>Distance travelled:</b></p>
+    </div>
+    <div class="distance_time_title left">
+		<p><b>In time:</b></p>
+    </div>
+    <div style="clear: both;"></div>
+{% endif %}
+
+<!-- session.id, below, ensures it sends the data to its own url -->
+<!-- csrf means Cross Site Request Forgery -->
+
+
+<form action="{% url 'tracker.views.log_performance' session.id %}" method="post">{% csrf_token %}	
+
+    {% if session_reps >= 1 and performance_dictionary.distance.1 != "" %}
+    	<div class="distance_time_title left alpha">
+        	<label for="id_recorded_time1">{{ performance_dictionary.distance.1 }}m:</label>
+        </div>
+        <div class="distance_time_title left">
+        	{{ form1.recorded_time1 }}
+        </div>
+        <div style="clear: both;"></div>
+    {% endif %}
+
+    {% if session_reps >= 1 and performance_dictionary.time.1 != "" %}
+        <div class="distance_time_title left alpha">
+            {{ form1.recorded_distance1 }}
+        </div>
+        <div class="distance_time_title left">
+            <label for="id_recorded_distance1">{{ performance_dictionary.time.1 }}</label>
+        </div>
+        <div style="clear: both;"></div>
+    {% endif %}
+
+    {% if session_reps >= 2 and performance_dictionary.distance.2 != "" %}
+        <div class="distance_time_title left alpha">
+            <label for="id_recorded_time2">{{ performance_dictionary.distance.2 }}m:</label>
+        </div>
+        <div class="distance_time_title left">
+            {{ form1.recorded_time2 }}
+        </div>
+        <div style="clear: both;"></div>
+    {% endif %}
+
+    {% if session_reps >= 2 and performance_dictionary.time.2 != "" %}
+        <div class="distance_time_title left alpha">
+            {{ form1.recorded_distance2 }}
+        </div>
+        <div class="distance_time_title left">
+            <label for="id_recorded_distance2">{{ performance_dictionary.time.2 }}</label>
+        </div>
+        <div style="clear: both;"></div>
+    {% endif %}
+
+    {% if session_reps >= 3 and performance_dictionary.distance.3 != "" %}
+        <div class="distance_time_title left alpha">
+            <label for="id_recorded_time3">{{ performance_dictionary.distance.3 }}m:</label>
+        </div>
+        <div class="distance_time_title left">
+            {{ form1.recorded_time3 }}
+        </div>
+        <div style="clear: both;"></div>
+    {% endif %}
+
+    {% if session_reps >= 3 and performance_dictionary.time.3 != "" %}
+        <div class="distance_time_title left alpha">
+            {{ form1.recorded_distance3 }}
+        </div>
+        <div class="distance_time_title left">
+            <label for="id_recorded_distance3">{{ performance_dictionary.time.3 }}</label>
+        </div>
+        <div style="clear: both;"></div>
+    {% endif %}
+
+    {% if session_reps >= 4 and performance_dictionary.distance.4 != "" %}
+        <div class="distance_time_title left alpha">
+            <label for="id_recorded_time4">{{ performance_dictionary.distance.4 }}m:</label>
+        </div>
+        <div class="distance_time_title left">
+            {{ form1.recorded_time4 }}
+        </div>
+        <div style="clear: both;"></div>
+    {% endif %}
+
+    {% if session_reps >= 4 and performance_dictionary.time.4 != "" %}
+        <div class="distance_time_title left alpha">
+            {{ form1.recorded_distance4 }}
+        </div>
+        <div class="distance_time_title left">
+            <label for="id_recorded_distance4">{{ performance_dictionary.time.4 }}</label>
+        </div>
+        <div style="clear: both;"></div>
+    {% endif %}
+
+    {% if session_reps >= 5 and performance_dictionary.distance.5 != "" %}
+        <div class="distance_time_title left alpha">
+            <label for="id_recorded_time5">{{ performance_dictionary.distance.5 }}m:</label>
+        </div>
+        <div class="distance_time_title left">
+            {{ form1.recorded_time5 }}
+        </div>
+        <div style="clear: both;"></div>
+    {% endif %}
+
+    {% if session_reps >= 5 and performance_dictionary.time.5 != "" %}
+        <div class="distance_time_title left alpha">
+            {{ form1.recorded_distance5 }}
+        </div>
+        <div class="distance_time_title left">
+            <label for="id_recorded_distance5">{{ performance_dictionary.time.5 }}</label>
+        </div>
+        <div style="clear: both;"></div>
+    {% endif %}
+
+    {% if session_reps >= 6 and performance_dictionary.distance.6 != "" %}
+        <div class="distance_time_title left alpha">
+            <label for="id_recorded_time6">{{ performance_dictionary.distance.6 }}m:</label>
+        </div>
+        <div class="distance_time_title left">
+            {{ form1.recorded_time6 }}
+        </div>
+        <div style="clear: both;"></div>
+    {% endif %}
+
+    {% if session_reps >= 6 and performance_dictionary.time.6 != "" %}
+        <div class="distance_time_title left alpha">
+            {{ form1.recorded_distance6 }}
+        </div>
+        <div class="distance_time_title left">
+            <label for="id_recorded_distance6">{{ performance_dictionary.time.6 }}</label>
+        </div>
+        <div style="clear: both;"></div>
+    {% endif %}
+
+    {% if session_reps >= 1 %}
+        <div class="unavailable">
+            <label for="id_unavailable">
+            <p><b>I'm unavailable for this session:</b> {{ form1.unavailable }}</p>
+            </label>
+            <input type="submit" value="Submit" />
+        </div>
+        <div style="clear: both;"></div>
+    {% endif %}
+
+
+
+    
+</form>
+
+</div>
+
+{% endblock contents %}

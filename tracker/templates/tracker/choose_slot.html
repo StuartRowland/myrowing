@@ -1,0 +1,96 @@
+{% extends "base_templates/tracker_base.html" %}
+{% load i18n %}
+
+{% load dictionary_extras %}
+
+{% block title%}
+Choose training slot
+{% endblock title %}
+
+{% block page_title %}
+Training slots
+{% endblock page_title %}
+
+{% block description %}
+Pick a time slot for <b>{{ session.name }}</b> on the <b>{{ session.date }}</b>
+{% endblock description %}
+
+{% block contents %}
+
+<div class="main_container">
+    <div class="center">
+        <form action="{% url 'tracker.views.choose_slot' session_id %}" method="post">{% csrf_token %}
+            <p>
+            <label for="id_slot_choices">Slot choices:&nbsp;</label>         
+            <select id="id_slot_choices" name="slot_choices">
+            <option value="" selected="selected">---------</option>
+            <option value="slot_1">Slot 1</option>
+            <option value="slot_2">Slot 2</option>
+            <option value="slot_3">Slot 3</option>
+            </select>
+            &nbsp;
+            <input type="submit" value="Select time" />
+            </p>
+        </form>
+    <br>
+    </div>
+
+    <div class="thirds alpha">
+        <p>Slot 1: <b>{{ session.slot1_time }}</b></p>
+        {% if error_dictionary|access:'slot1_max' == "full" %}
+        <div class="errors"><b>This slot is full!</b></div>
+        {% endif %}
+        {% if error_dictionary|access:'slot1_senior' == "lacking" %}
+        <div class="senior">(Senior rower needed)</div>
+        {% endif %}
+    </div>
+    <div class="thirds">
+        <p>Slot 2: <b>{{ session.slot2_time }}</b></p>
+        {% if error_dictionary|access:'slot2_max' == "full" %}
+        <div class="errors"><b>This slot is full!</b></div>
+        {% endif %}
+        {% if error_dictionary|access:'slot2_senior' == "lacking" %}
+        <div class="senior">(Senior rower needed)</div>
+        {% endif %}
+    </div>
+    <div class="thirds">
+        <p>Slot 3: <b>{{ session.slot3_time }}</b></p>
+        {% if error_dictionary|access:'slot3_max' == "full" %}
+        <div class="errors"><b>This slot is full!</b></div>
+        {% endif %}
+        {% if error_dictionary|access:'slot3_senior' == "lacking" %}
+        <div class="senior">(Senior rower needed)</div>
+        {% endif %}
+    </div>
+    <div style="clear: both;"></div>
+
+    <div class="thirds alpha">
+        <ul class="rowers">
+            {% for rower in slot_selection_dictionary|access:'slot_time1' %}
+            <li>{{ rower }}</li>
+            <br>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="thirds">
+        <ul class="rowers">
+            {% for rower in slot_selection_dictionary|access:'slot_time2' %}
+            <li>{{ rower }}</li>
+            <br>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="thirds">
+        <ul class="rowers">
+            {% for rower in slot_selection_dictionary|access:'slot_time3' %}
+            <li>{{ rower }}</li>
+            <br>
+            {% endfor %}
+        </ul>
+    </div>
+
+
+</div>
+
+
+{% endblock %}

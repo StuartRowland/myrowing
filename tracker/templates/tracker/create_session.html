@@ -1,0 +1,28 @@
+{% extends "base_templates/tracker_base.html" %}
+{% load i18n %}
+
+{% load dictionary_extras %}
+
+{% block title%}
+Create Session
+{% endblock title %}
+
+{% block page_title %}
+Create Session
+{% endblock page_title %}
+
+{% block description %}
+Here's where you can create a training session for SJCBC.
+{% endblock description %}
+
+{% block contents %}
+
+<div class="create_session1">
+<form action="/tracker/create_session/" method="post">{% csrf_token %}
+{{ form1.as_p }}
+{{ form2.as_p }}
+<input type="submit" value="Create" />
+</form>
+</div>
+
+{% endblock contents %}
